@@ -1,0 +1,15 @@
+<Window x:Class="ColorVisionStudio.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ColorVision Studio" Width="1040" Height="660" MinWidth="820" MinHeight="560" Background="#1B1C20" Foreground="#E8E8EC" FontFamily="Segoe UI">
+  <Grid Margin="16">
+    <Grid.ColumnDefinitions><ColumnDefinition Width="340"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+    <Border Background="#25262B" CornerRadius="10" BorderBrush="#34353C" BorderThickness="1" Padding="16">
+      <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel x:Name="Panel"/></ScrollViewer>
+    </Border>
+    <Border Grid.Column="1" Margin="16,0,0,0" Background="#25262B" CornerRadius="10" BorderBrush="#34353C" BorderThickness="1" Padding="12">
+      <DockPanel>
+        <TextBlock x:Name="Status" DockPanel.Dock="Bottom" Margin="0,8,0,0" Foreground="#9A9BA5" TextWrapping="Wrap"/>
+        <Image x:Name="Preview" Stretch="Uniform"/>
+      </DockPanel>
+    </Border>
+  </Grid>
+</Window>
