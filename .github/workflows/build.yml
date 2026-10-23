@@ -1,0 +1,13 @@
+name: Build Windows exe
+on: { push: { branches: [main] }, workflow_dispatch: {} }
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+      - run: dotnet test src/ColorVisionStudio.Tests -c Release
+      - run: dotnet publish src/ColorVisionStudio.App -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o dist
+      - uses: actions/upload-artifact@v4
+        with: { name: ColorVisionStudio-win-x64, path: dist/ColorVisionStudio.exe }
